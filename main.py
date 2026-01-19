@@ -39,6 +39,17 @@ def init():
     Emeny.vx = 3
     Emeny.vy = -4
 
+def randomize_velocity(Emeny: Emeny):
+    if randint(1, 10):
+        if Emeny.x > 95 and Emeny.y < 105:
+            if Emeny.y > 95 and Emeny.y < 105:
+                if randint(1, 2) == 1:
+                    Emeny.vx = -Emeny.vy
+                    Emeny.vy = Emeny.vx
+                elif randint(1, 2) == 2:
+                    Emeny.vx = Emeny.vy
+                    Emeny.vy = Emeny.vx
+
 one = Player(0, 0)
 two = Player(350, 350)
 
@@ -97,6 +108,8 @@ while running:
 
         Emeny.x = Emeny.x + Emeny.vx
         Emeny.y = Emeny.y + Emeny.vy
+        
+        randomize_velocity(Emeny=Emeny)
 
         if Emeny.x < 0 or Emeny.x > 450:
             Emeny.vx = -Emeny.vx
